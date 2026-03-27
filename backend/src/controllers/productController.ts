@@ -39,6 +39,7 @@ export const createProduct = async (req: Request, res: Response) => {
 
     const product = new Product({
       ...req.body,
+      precio: parseFloat(req.body.precio),
       imagen: imagenUrl,
     });
 
@@ -51,20 +52,27 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
   try {
+    console.log('body:', req.body);
+    console.log('file:', req.file);
+    
     let updateData = { ...req.body };
 
     if (req.file) {
       updateData.imagen = await uploadToCloudinary(req.file.buffer);
     }
 
-    const updated = await Product.findByIdAndUpdate(
-      req.params.id,
-      updateData,
-      { new: true }
-    );
+    if (updateData.precio) {
+      updateData.precio = parseFloat(updateData.precio);
+    }
+
+  const updated = await Product.findByIdAndUpdate(
+    req.params.id,
+    updateData,
+    { returnDocument: 'after' }
+  );  
     res.json(updated);
   } catch (error) {
-    res.status(400).json({ message: 'Error al editar producto' });
+    res.status(400).json({ message: 'Error al editar producto', error: String(error) });
   }
 };
 
