@@ -1,3 +1,5 @@
+import { Search } from 'lucide-react'
+
 interface SearchBarProps {
   onSearch: (query: string) => void;
   onFilter: (filters: { tipo?: string; color?: string }) => void;
@@ -10,7 +12,7 @@ function SearchBar({ onSearch, onFilter }: SearchBarProps) {
   return (
     <div className="mx-6 bg-white rounded-xl border border-gray-200 p-6">
       <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-        🔍 Buscar Productos
+        <Search color="#000000" /> Buscar Productos
       </h2>
       <div className="flex gap-3">
         <input
