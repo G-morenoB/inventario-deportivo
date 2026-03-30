@@ -6,6 +6,7 @@ export interface IProduct extends Document {
   tipo: string;
   color: string;
   precio: number;
+  cantidad: number;
   imagen: string;
   descripcion?: string;
 }
@@ -18,6 +19,7 @@ const ProductSchema: Schema = new Schema({
   precio:      { type: Number, required: true },
   imagen:      { type: String, required: true },
   descripcion: { type: String },
+  cantidad: { type: Number, required: true, default: 0 },
 }, { timestamps: true });
 
 ProductSchema.index({ nombre: 'text', marca: 'text', descripcion: 'text' });

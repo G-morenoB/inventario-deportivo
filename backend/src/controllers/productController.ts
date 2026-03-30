@@ -40,6 +40,7 @@ export const createProduct = async (req: Request, res: Response) => {
     const product = new Product({
       ...req.body,
       precio: parseFloat(req.body.precio),
+      cantidad: parseInt(req.body.cantidad), 
       imagen: imagenUrl,
     });
 
@@ -63,6 +64,9 @@ export const updateProduct = async (req: Request, res: Response) => {
 
     if (updateData.precio) {
       updateData.precio = parseFloat(updateData.precio);
+    }
+    if (updateData.cantidad) {
+      updateData.cantidad = parseInt(updateData.cantidad);
     }
 
   const updated = await Product.findByIdAndUpdate(
