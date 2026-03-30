@@ -71,7 +71,7 @@ const handleSave = async (formData: FormData) => {
 }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#FFF5EE]">
       <Navbar onAddProduct={handleAddProduct} />
       <Stats totalProductos={totalProductos} totalMarcas={totalMarcas} />
       <SearchBar onSearch={handleSearch} onFilter={handleFilter} />
