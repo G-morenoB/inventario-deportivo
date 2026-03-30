@@ -13,7 +13,8 @@ function ProductGrid({ products, onEdit, onDelete }: ProductGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
       {products.map((product) => (
-    <div key={product._id} className="bg-white rounded-xl overflow-hidden transition-shadow duration-300 hover:shadow-xl">        <div className="overflow-hidden h-48 ">
+    <div key={product._id} className="bg-white rounded-xl overflow-hidden transition-shadow duration-300 hover:shadow-xl">       
+    <div className="overflow-hidden h-90 ">
           <img
             src={product.imagen}
             alt={product.nombre}
