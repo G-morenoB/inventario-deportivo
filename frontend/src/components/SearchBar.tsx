@@ -14,7 +14,7 @@ function SearchBar({ onSearch, onFilter }: SearchBarProps) {
       <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
         <Search color="#000000" /> Buscar Productos
       </h2>
-      <div className="flex gap-3">
+      <div className="flex flex-col md:flex-row gap-3">
         <input
           type="text"
           placeholder="Buscar por nombre, marca o descripción..."
