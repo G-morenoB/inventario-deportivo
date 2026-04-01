@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProducts, searchProducts } from '../services/api'
+import { getProductsPublic, searchProductsPublic } from '../services/api'
 import type { Product } from '../types/product'
 
 const TIPOS = ['Todos los tipos', 'Tenis', 'Calcetas', 'Jersey', 'Short Licra', 'Accesorio', 'Playera Licra', 'Pulsera']
@@ -11,7 +11,7 @@ function Catalogo() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getProducts().then(data => {
+    getProductsPublic().then(data => {
       setProducts(data)
       setLoading(false)
     })
@@ -19,16 +19,16 @@ function Catalogo() {
 
   const handleSearch = (query: string) => {
     if (query.trim() === '') {
-      getProducts(filters).then(setProducts)
+      getProductsPublic(filters).then(setProducts)
     } else {
-      searchProducts(query).then(setProducts)
+      searchProductsPublic(query).then(setProducts)
     }
   }
 
   const handleFilter = (newFilter: { tipo?: string; color?: string }) => {
     const updatedFilters = { ...filters, ...newFilter }
     setFilters(updatedFilters)
-    getProducts(updatedFilters).then(setProducts)
+    getProductsPublic(updatedFilters).then(setProducts)
   }
 
   if (loading) {

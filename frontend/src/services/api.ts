@@ -55,3 +55,17 @@ export const deleteProduct = async (id: string): Promise<void> => {
     headers: getAuthHeader()
   });
 };
+
+export const getProductsPublic = async (filters?: { tipo?: string; color?: string }): Promise<Product[]> => {
+  const params = new URLSearchParams();
+  if (filters?.tipo) params.append('tipo', filters.tipo);
+  if (filters?.color) params.append('color', filters.color);
+
+  const res = await fetch(`${BASE_URL}/productos?${params}`);
+  return res.json();
+};
+
+export const searchProductsPublic = async (q: string): Promise<Product[]> => {
+  const res = await fetch(`${BASE_URL}/productos/search?q=${q}`);
+  return res.json();
+};

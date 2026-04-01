@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
-app.use('/api/productos', protect, productRoutes);
+app.use('/api/productos', productRoutes);
 
 mongoose.connect(process.env.MONGO_URI as string)
   .then(() => console.log('MongoDB conectado'))

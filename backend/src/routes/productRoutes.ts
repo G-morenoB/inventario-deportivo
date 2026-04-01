@@ -8,14 +8,15 @@ import {
   getStats
 } from '../controllers/productController';
 import { upload } from '../middlewares/upload';
+import { protect } from '../middlewares/auth';
 
 const router = Router();
 
 router.get('/stats', getStats);
 router.get('/search', searchProducts);
 router.get('/', getProducts);
-router.post('/', upload.single('imagen'), createProduct);
-router.put('/:id', upload.single('imagen'), updateProduct);
-router.delete('/:id', deleteProduct);
+router.post('/', protect, upload.single('imagen'), createProduct);
+router.put('/:id', protect, upload.single('imagen'), updateProduct);
+router.delete('/:id', protect, deleteProduct);
 
 export default router;
