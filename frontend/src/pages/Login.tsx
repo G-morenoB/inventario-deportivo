@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SportShoe } from 'lucide-react'
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -40,7 +41,7 @@ function Login() {
       <div className="bg-white rounded-xl border border-gray-200 p-8 w-full max-w-sm">
         <div className="flex flex-col items-center mb-8">
           <div className="bg-orange-500 p-3 rounded-xl mb-4">
-            <span className="text-white text-3xl">🏀</span>
+            <span className="text-white text-3xl"><SportShoe color="#ffffff" /></span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Zona Basquet</h1>
           <p className="text-sm text-gray-500 mt-1">Panel de Administración</p>
