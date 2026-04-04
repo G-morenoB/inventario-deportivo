@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getProductsPublic, searchProductsPublic } from '../services/api'
 import type { Product } from '../types/product'
+import { ShoppingBasket } from 'lucide-react'
 
 const TIPOS = ['Todos los tipos', 'Tenis', 'Calcetas', 'Jersey', 'Short Licra', 'Accesorio', 'Playera Licra', 'Pulsera']
 const COLORES = ['Todos los colores', 'Negro', 'Blanco', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja']
@@ -46,7 +47,7 @@ function Catalogo() {
     <div className="min-h-screen bg-[#FFF5EE]">
       <nav className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-3">
         <div className="bg-orange-500 p-2 rounded-lg">
-          <span className="text-white text-xl">🏀</span>
+          <span className="text-white text-xl"><ShoppingBasket color="#ffffff" /></span>
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900">Zona Basquet</h1>
